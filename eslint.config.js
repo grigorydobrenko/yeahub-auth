@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
+import stylisticTs from '@stylistic/eslint-plugin-ts'
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -28,4 +29,13 @@ export default tseslint.config(
         'prettier/prettier': 'warn'
     },
   },
+    {
+        files: ['**/*.{ts,tsx}'],
+        plugins: {
+            '@stylistic/ts': stylisticTs,
+        },
+        rules: {
+            '@/max-len': ['error', { code: 100 }],
+        },
+    }
 )

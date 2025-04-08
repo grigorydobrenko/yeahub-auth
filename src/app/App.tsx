@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import reactLogo from '../shared/assets/react.svg';
 import viteLogo from '/vite.svg';
 import './styles/index.scss';
 import {Typography} from "../shared/ui-kit";
+import {Button} from "../shared/ui-kit/button/button.tsx";
 
 function App() {
   const [count, setCount] = useState(0);
+
 
   return (
     <>
@@ -29,6 +31,12 @@ function App() {
       <Typography variant={'head1'} >
         Click on the Vite and React logos to learn more
       </Typography>
+        <Button onClick={() => setCount((count) => count + 1)} >
+            Primary
+        </Button>
+        <Button variant={'link'} href={'https://vite.dev'} >
+            Primary
+        </Button>
     </>
   );
 }
