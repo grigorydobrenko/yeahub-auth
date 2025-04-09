@@ -2,9 +2,7 @@ import {useRef, useState} from 'react';
 import reactLogo from '../shared/assets/react.svg';
 import viteLogo from '/vite.svg';
 import './styles/index.scss';
-import {Input, Typography} from "../shared/ui-kit";
-import {Button} from "../shared/ui-kit/button/button.tsx";
-import {Checkbox} from "../shared/ui-kit/checkbox/checkbox.tsx";
+import {Button, Checkbox, Input, Typography} from "@/shared/ui-kit";
 
 function App() {
   const [count, setCount] = useState(0);
