@@ -1,6 +1,6 @@
-import {AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode, Ref,} from 'react';
-import clsx from "clsx";
-import s from './button.module.scss'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode, Ref } from 'react';
+import clsx from 'clsx';
+import s from './button.module.scss';
 
 export const BUTTON_VARIANTS = ['primary', 'secondary', 'tertiary', 'link'] as const;
 export const BUTTON_SIZES = ['S', 'M', 'L'] as const;
@@ -17,13 +17,13 @@ interface BaseButtonProps {
 }
 
 type ButtonElementProps = {
-    variant?: Exclude<ButtonVariant, 'link'>;
-    ref?: Ref<HTMLButtonElement>;
+  variant?: Exclude<ButtonVariant, 'link'>;
+  ref?: Ref<HTMLButtonElement>;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 type AnchorElementProps = {
-    variant?: 'link';
-    ref?: Ref<HTMLAnchorElement>;
+  variant?: 'link';
+  ref?: Ref<HTMLAnchorElement>;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 type ButtonProps = BaseButtonProps & (ButtonElementProps | AnchorElementProps);
@@ -36,23 +36,22 @@ export const Button = ({
   prefix,
   badge,
   children,
-    ref,
-    className,
+  ref,
+  className,
   ...restProps
 }: ButtonProps) => {
-
   const tagName = variant === 'link' ? 'a' : 'button';
   const Component = tagName as React.ElementType;
 
-    const buttonClassNames = clsx(
-        s.button,
-        s[`button-${variant}`],
-        s[`button-${size}`],
-        {
-            [s['button-full']]: fullWidth,
-        },
-        className,
-    );
+  const buttonClassNames = clsx(
+    s.button,
+    s[`button-${variant}`],
+    s[`button-${size}`],
+    {
+      [s['button-full']]: fullWidth,
+    },
+    className
+  );
 
   return (
     <Component ref={ref} className={buttonClassNames} {...restProps}>
