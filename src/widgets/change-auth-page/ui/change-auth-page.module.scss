@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-radius: 20px;
+  background-color: var(--color-label-bg);
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+}
+
+.link {
+  padding: 0;
+}

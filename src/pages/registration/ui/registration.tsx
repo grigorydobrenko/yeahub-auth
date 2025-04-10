@@ -1,5 +1,9 @@
+
 export const RegistrationPage = () => {
-    return (
-        <div>registration</div>
-    )
-}
+
+  return (
+    <div className="App">
+      registration
+    </div>
+  );
+};

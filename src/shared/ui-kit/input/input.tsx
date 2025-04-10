@@ -74,6 +74,7 @@ export const Input = ({
         disabled={disabled}
         aria-invalid={error}
         {...restProps}
+        autoComplete="new-password"
       />
       {suffix}
     </div>

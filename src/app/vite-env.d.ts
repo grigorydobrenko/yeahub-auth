@@ -1,2 +1,2 @@
-/// <reference types="vite/client" />
-/// <reference types="vite-plugin-svgr/client" />
+/// <reference const="vite/client" />
+/// <reference const="vite-plugin-svgr/client" />

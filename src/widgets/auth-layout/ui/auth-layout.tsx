@@ -3,11 +3,12 @@ import s from './auth-layout.module.scss';
 import { Outlet, useNavigate } from 'react-router';
 import Logo from '@/shared/assets/logo.svg?react';
 import CheckCircle from '@/shared/assets/check-circle.svg?react';
+import { routes } from '@/shared/const/router.ts';
 export const AuthLayout = () => {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    navigate('/');
+    navigate(routes.home);
   };
 
   return (
