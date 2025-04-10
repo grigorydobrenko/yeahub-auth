@@ -1,0 +1,45 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--background-primary);
+  flex: 0 1 28%;
+  display: flex;
+  flex-direction: column;
+  padding: 78px 112px;
+}
+
+@media (max-width: 1440px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.listTitle {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  justify-content: flex-start;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+}
+
+.list > li + li {
+  margin-top: 0.5rem;
+}
+
+.list > li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+

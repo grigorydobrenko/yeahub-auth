@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+
 :root {
   /* Dimensions */
   --font-size-none: 0;
@@ -17,7 +19,7 @@
   --font-size-h-l: 40px;
   --font-size-h-xxl: 60px;
   --font-family:
-    'Manrope', sans-serif; /* Kept in the list but not used in font variables */
+    'Manrope'; /* Kept in the list but not used in font variables */
   --font-weight-400: 400;
   --font-weight-500: 500;
   --font-weight-600: 600;
@@ -27,6 +29,10 @@
   --line-height-120: 120%;
   --line-height-127: 127%;
   --line-height-130: 130%;
+}
+
+body {
+  font-family: var(--font-family), sans-serif;
 }
 
 

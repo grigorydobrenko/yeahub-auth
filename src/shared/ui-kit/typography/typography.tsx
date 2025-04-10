@@ -1,6 +1,6 @@
 import s from './typography.module.scss';
 import clsx from 'clsx';
-import { camelToKebab } from '../../utils/camel-to-kebab.ts';
+import {camelToKebab} from '../../utils/camel-to-kebab.ts';
 
 export const TYPOGRAPHY_SIZES = [
   'head1',
