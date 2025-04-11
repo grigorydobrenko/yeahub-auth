@@ -12,7 +12,7 @@ export const ChangeAuthPage = ({ currentPage }: ChangeAuthPageProps) => {
   const isRegistrationPage = currentPage === 'registration';
 
   const question = isRegistrationPage ? 'Уже есть аккаунт' : 'Нет аккаунта?';
-  const linkTitle = isRegistrationPage ? 'Войте' : 'Зарегистрироваться';
+  const linkTitle = isRegistrationPage ? 'Войти' : 'Зарегистрироваться';
 
   const navigate = useNavigate();
 

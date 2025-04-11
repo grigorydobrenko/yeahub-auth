@@ -1,9 +1,11 @@
-
+import { RegistrationForm } from '@/features/registration';
+import s from './registration.module.scss';
+import { ChangeAuthPage } from '@/widgets/change-auth-page';
 export const RegistrationPage = () => {
-
   return (
-    <div className="App">
-      registration
+    <div className={s.container}>
+      <RegistrationForm />
+      <ChangeAuthPage currentPage={'registration'} />
     </div>
   );
 };

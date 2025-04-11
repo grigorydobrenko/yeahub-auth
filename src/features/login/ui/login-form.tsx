@@ -5,18 +5,20 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import s from './login-form.module.scss';
 import { useLoginMutation } from '../api/login';
 import { useNavigate } from 'react-router';
+import { routes } from '@/shared/const/router.ts';
 
 export const LoginForm = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<LoginFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      username: '',
+      email: '',
       password: '',
     },
+    mode: 'onChange',
   });
 
   const navigate = useNavigate();
@@ -24,8 +26,9 @@ export const LoginForm = () => {
   const [login, { isLoading }] = useLoginMutation();
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
-    await login(data).unwrap();
-    navigate('/');
+    const credentials = { username: data.email, password: data.password };
+    await login(credentials).unwrap();
+    navigate(routes.home);
   };
 
   return (
@@ -35,17 +38,16 @@ export const LoginForm = () => {
       </Typography>
       <form
         className={s.form}
-        onSubmit={handleSubmit(onSubmit, (errors) => console.log('Validation errors:', errors))}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <Controller
-          name={'username'}
+          name={'email'}
           control={control}
           render={({ field }) => (
             <FormField
               label={'Электронная почта'}
               placeholder={'Введите электронную почту'}
-              autoComplete={'off'}
-              errorMessage={errors.username?.message}
+              errorMessage={errors.email?.message}
               {...field}
             />
           )}
@@ -58,13 +60,12 @@ export const LoginForm = () => {
               label={'Пароль'}
               placeholder={'Введите пароль'}
               type={'password'}
-              autoComplete={'off'}
               errorMessage={errors.password?.message}
               {...field}
             />
           )}
         />
-        <Button className={s.button} size={'L'} disabled={isLoading} fullWidth>
+        <Button className={s.button} size={'L'} disabled={isLoading || !isValid} fullWidth>
           Вход
         </Button>
       </form>

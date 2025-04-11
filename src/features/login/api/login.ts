@@ -2,7 +2,7 @@ import { baseApi } from '@/shared/api/base-api.ts';
 import { ACCESS_TOKEN } from '@/shared/const/local-storage.ts';
 import { setUserName } from '@/entities/user/model/slice';
 
-type Auth = {
+type AuthPayload = {
   username: string;
   password: string;
 };
@@ -36,7 +36,7 @@ interface AuthResponse {
 
 const extendedApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation<AuthResponse, Auth>({
+    login: build.mutation<AuthResponse, AuthPayload>({
       query: (auth) => ({
         url: 'auth/login',
         method: 'POST',
@@ -53,7 +53,6 @@ const extendedApi = baseApi.injectEndpoints({
       },
     }),
   }),
-  overrideExisting: false,
 });
 
 export const { useLoginMutation } = extendedApi;
