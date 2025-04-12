@@ -1,5 +1,6 @@
 import { baseApi } from '@/shared/api/base-api.ts';
 import { setUserName } from '@/entities/user';
+import { toast } from 'react-toastify';
 
 export const extendedApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -11,6 +12,7 @@ export const extendedApi = baseApi.injectEndpoints({
           dispatch(setUserName(''));
         } catch (error) {
           console.log(error);
+          toast.error('Ошибка при выходе из системы.');
         }
       },
     }),

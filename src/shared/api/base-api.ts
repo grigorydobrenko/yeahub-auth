@@ -1,5 +1,6 @@
 import { BaseQueryApi, createApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ACCESS_TOKEN } from '@/shared/const/local-storage.ts';
+import { toast } from 'react-toastify';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://api.yeatwork.ru/',
@@ -19,6 +20,10 @@ const baseQueryWithReauth = async (
   extraOptions: object
 ) => {
   let result = await baseQuery(args, api, extraOptions);
+
+  if (result.error && result.error.status !== 401) {
+    toast.error('Произошла ошибка');
+  }
 
   if (result.error?.status === 401) {
     const refreshResult = await baseQuery('/auth/refresh', api, extraOptions);

@@ -1,6 +1,7 @@
 import { baseApi } from '@/shared/api/base-api.ts';
 import { ACCESS_TOKEN } from '@/shared/const/local-storage.ts';
 import { setUserName } from '@/entities/user';
+import {toast} from "react-toastify";
 
 type AuthPayload = {
   username: string;
@@ -39,6 +40,7 @@ const extendedApi = baseApi.injectEndpoints({
           dispatch(setUserName(result.data.user.username));
         } catch (error) {
           console.log(error);
+          toast.error('Ошибка при регистрации. Проверьте данные');
         }
       },
     }),
