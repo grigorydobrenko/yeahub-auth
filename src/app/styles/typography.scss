@@ -18,8 +18,7 @@
   --font-size-h-m: 36px;
   --font-size-h-l: 40px;
   --font-size-h-xxl: 60px;
-  --font-family:
-    'Manrope'; /* Kept in the list but not used in font variables */
+  --font-family: 'Manrope'; /* Kept in the list but not used in font variables */
   --font-weight-400: 400;
   --font-weight-500: 500;
   --font-weight-600: 600;
@@ -34,5 +33,3 @@
 body {
   font-family: var(--font-family), sans-serif;
 }
-
-

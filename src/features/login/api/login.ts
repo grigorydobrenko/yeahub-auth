@@ -1,5 +1,4 @@
 import { baseApi } from '@/shared/api/base-api.ts';
-import { ACCESS_TOKEN } from '@/shared/const/local-storage.ts';
 import { setUserName } from '@/entities/user/model/slice';
 
 type AuthPayload = {
@@ -45,7 +44,6 @@ const extendedApi = baseApi.injectEndpoints({
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const result = await queryFulfilled;
-          localStorage.setItem(ACCESS_TOKEN, result.data.access_token);
           dispatch(setUserName(result.data.user.username));
         } catch (error) {
           console.log(error);

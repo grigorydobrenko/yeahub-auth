@@ -1,4 +1,3 @@
-
 import { Button, Typography } from '@/shared/ui-kit';
 import { useNavigate } from 'react-router';
 import { routes } from '@/shared/const/router.ts';

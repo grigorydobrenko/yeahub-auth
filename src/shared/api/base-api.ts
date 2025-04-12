@@ -1,6 +1,5 @@
 import { BaseQueryApi, createApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {ACCESS_TOKEN} from "@/shared/const/local-storage.ts";
-
+import { ACCESS_TOKEN } from '@/shared/const/local-storage.ts';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://api.yeatwork.ru/',
@@ -30,7 +29,7 @@ const baseQueryWithReauth = async (
       localStorage.setItem(ACCESS_TOKEN, access_token);
       result = await baseQuery(args, api, extraOptions);
     } else {
-      console.log('should redirect to login');
+      localStorage.removeItem(ACCESS_TOKEN);
     }
   }
 
@@ -40,6 +39,5 @@ const baseQueryWithReauth = async (
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: baseQueryWithReauth,
-  endpoints: () => ({})
+  endpoints: () => ({}),
 });
-

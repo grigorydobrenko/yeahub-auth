@@ -6,6 +6,8 @@ import s from './login-form.module.scss';
 import { useLoginMutation } from '../api/login';
 import { useNavigate } from 'react-router';
 import { routes } from '@/shared/const/router.ts';
+import { useAuth } from '@/app/providers/auth-provider.tsx';
+import { useEffect } from 'react';
 
 export const LoginForm = () => {
   const {
@@ -18,28 +20,34 @@ export const LoginForm = () => {
       email: '',
       password: '',
     },
-    mode: 'onChange',
+    mode: 'onTouched',
   });
 
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
 
+  const { token, setToken } = useAuth();
+
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     const credentials = { username: data.email, password: data.password };
-    await login(credentials).unwrap();
+    const result = await login(credentials).unwrap();
+    setToken(result.access_token);
     navigate(routes.home);
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate(routes.home);
+    }
+  }, [navigate, token]);
 
   return (
     <div>
       <Typography className={s.title} variant={'head2'}>
         Вход в личный кабинет
       </Typography>
-      <form
-        className={s.form}
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name={'email'}
           control={control}

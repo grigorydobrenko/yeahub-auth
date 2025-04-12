@@ -3,7 +3,7 @@
   margin: 173px auto;
   display: flex;
   flex-direction: column;
-  gap: 203px
+  gap: 203px;
 }
 
 @media (max-width: 768px) {
@@ -11,9 +11,6 @@
     width: 100%;
     margin: 3rem auto;
     padding: 0 1rem;
-    gap: 138px
+    gap: 138px;
   }
 }
-
-
-

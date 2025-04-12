@@ -6,6 +6,8 @@ import { useRegisterMutation } from '../api/registration';
 import { RegistrationFormData, schema } from '../model/schema';
 import { routes } from '@/shared/const/router.ts';
 import { useNavigate } from 'react-router';
+import { useAuth } from '@/app/providers/auth-provider.tsx';
+import { useEffect } from 'react';
 
 export const RegistrationForm = () => {
   const {
@@ -20,11 +22,13 @@ export const RegistrationForm = () => {
       email: '',
       confirmPassword: '',
     },
-    mode: 'onChange',
+    mode: 'onTouched',
   });
   const navigate = useNavigate();
 
   const [register, { isLoading }] = useRegisterMutation();
+
+  const { token, setToken } = useAuth();
 
   const onSubmit: SubmitHandler<RegistrationFormData> = async (data) => {
     const { username, password, email } = data;
@@ -33,9 +37,16 @@ export const RegistrationForm = () => {
       password,
       email,
     };
-    await register(credentials).unwrap();
+    const result = await register(credentials).unwrap();
+    setToken(result.access_token);
     navigate(routes.home);
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate(routes.home);
+    }
+  }, [navigate, token]);
 
   return (
     <div>
@@ -81,11 +92,11 @@ export const RegistrationForm = () => {
           )}
         />
         <Controller
-          type={'password'}
           name={'confirmPassword'}
           control={control}
           render={({ field }) => (
             <FormField
+              type={'password'}
               label={'Подтвердить пароль'}
               placeholder={'Введите пароль'}
               errorMessage={errors.confirmPassword?.message}
