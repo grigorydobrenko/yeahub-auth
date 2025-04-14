@@ -1,0 +1,18 @@
+.logo {
+  justify-content: flex-start;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:focus-visible {
+    text-decoration: none;
+  }
+}

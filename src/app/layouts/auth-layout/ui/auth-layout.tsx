@@ -1,22 +1,14 @@
-import { Button, Typography } from '@/shared/ui-kit';
+import { Typography } from '@/shared/ui-kit';
 import s from './auth-layout.module.scss';
-import { Outlet, useNavigate } from 'react-router';
-import Logo from '@/shared/assets/logo.svg?react';
+import { Outlet } from 'react-router';
 import CheckCircle from '@/shared/assets/check-circle.svg?react';
-import { routes } from '@/shared/const/router.ts';
+import { MainLogo } from '@/widgets/logo';
+
 export const AuthLayout = () => {
-  const navigate = useNavigate();
-
-  const handleLogoClick = () => {
-    navigate(routes.home);
-  };
-
   return (
     <div className={s.layout}>
       <div className={s.sidebar}>
-        <Button className={s.logo} variant={'link'} onClick={handleLogoClick}>
-          <Logo />
-        </Button>
+        <MainLogo theme={'inverted'} />
         <Typography variant={'body3'} color={'secondary'}>
           YeaHub объединяет IT-специалистов
         </Typography>
@@ -56,7 +48,12 @@ export const AuthLayout = () => {
           </li>
         </ul>
       </div>
-      <Outlet />
+      <>
+        <MainLogo className={s.resetDesktop} theme={'primary'} />
+        <div className={s.container}>
+          <Outlet />
+        </div>
+      </>
     </div>
   );
 };

@@ -3,6 +3,13 @@
   height: 100vh;
 }
 
+@media (max-width: 1440px) {
+  .layout {
+    display: block;
+  }
+}
+
+
 .sidebar {
   background-color: var(--background-primary);
   flex: 0 1 28%;
@@ -22,11 +29,7 @@
   margin-bottom: 1rem;
 }
 
-.logo {
-  justify-content: flex-start;
-  padding: 0;
-  margin-bottom: 0.5rem;
-}
+
 
 .list {
   padding: 0;
@@ -41,4 +44,32 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.container {
+  width: 450px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    gap: 138px;
+  }
+}
+
+.resetDesktop {
+  max-height: 100px;
+  margin: 20px 30px
+}
+
+@media (min-width: 1440px) {
+  .resetDesktop {
+    display: none !important;
+  }
 }

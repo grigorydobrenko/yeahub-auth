@@ -29,7 +29,7 @@ type TypographyVariant = (typeof TYPOGRAPHY_SIZES)[number];
 interface TypographyProps {
   variant: TypographyVariant;
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p';
-  children: string;
+  children: string | string[];
   color?: 'primary' | 'secondary';
   maxRows?: 1 | 2;
   className?: string;

@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import { GreetingPage } from '@/pages/greeting';
 import { LoginPage } from '@/pages/login';
 import { RegistrationPage } from '@/pages/registration';
-import { AuthLayout } from '@/widgets/auth-layout/ui/auth-layout.tsx';
+import { AuthLayout } from '../layouts/auth-layout/ui/auth-layout';
 import { routes } from '@/shared/const/router.ts';
 import { ProtectedRoute } from '@/app/router/protected-route.tsx';
 
