@@ -1,7 +1,7 @@
 ## Демо
 
 Приложение задеплоено на Vercel:  
-🔗 [yeahub-auth.vercel.app/login](https://yeahub-auth.vercel.app/login)
+🔗 [yeahub-auth](https://yeahub-auth-8vs9cr85e-grigorydobrenkos-projects.vercel.app/login)
 
 ## Установка
 
@@ -9,7 +9,7 @@
 
 ```bash
 git clone https://github.com/grigorydobrenko/yeahub-auth
-cd your-repo-name
+cd yeahub-auth
 yarn install
 ```
 
