@@ -1,7 +1,7 @@
 import { baseApi } from '@/shared/api/base-api.ts';
 import { ACCESS_TOKEN } from '@/shared/const/local-storage.ts';
 import { setUserName } from '@/entities/user';
-import {toast} from "react-toastify";
+import { toast } from 'react-toastify';
 
 type AuthPayload = {
   username: string;

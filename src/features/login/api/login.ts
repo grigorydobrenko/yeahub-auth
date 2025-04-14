@@ -1,6 +1,6 @@
 import { baseApi } from '@/shared/api/base-api.ts';
 import { setUserName } from '@/entities/user/model/slice';
-import {toast} from "react-toastify";
+import { toast } from 'react-toastify';
 
 type AuthPayload = {
   username: string;

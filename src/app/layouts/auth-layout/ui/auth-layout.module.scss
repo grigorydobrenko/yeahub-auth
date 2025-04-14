@@ -9,7 +9,6 @@
   }
 }
 
-
 .sidebar {
   background-color: var(--background-primary);
   flex: 0 1 28%;
@@ -28,8 +27,6 @@
   margin-top: auto;
   margin-bottom: 1rem;
 }
-
-
 
 .list {
   padding: 0;
@@ -65,7 +62,7 @@
 
 .resetDesktop {
   max-height: 100px;
-  margin: 20px 30px
+  margin: 20px 30px;
 }
 
 @media (min-width: 1440px) {
