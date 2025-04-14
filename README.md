@@ -1,7 +1,7 @@
 ## Демо
 
 Приложение задеплоено на Vercel:  
-🔗 [yeahub-auth](https://yeahub-auth-8vs9cr85e-grigorydobrenkos-projects.vercel.app/login)
+🔗 [yeahub-auth](https://yeahub-auth.vercel.app/login)
 
 ## Установка
 
